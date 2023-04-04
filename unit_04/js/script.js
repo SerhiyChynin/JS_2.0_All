@@ -29,4 +29,5 @@ document.querySelector('#btn-2').onclick = (event) => {
     // document.querySelector('#i-3').value = 'orange';
     let form = document.querySelector('form');
     console.log(form.elements.i3.value);
+    console.log(form.elements.i4.value);
 }
