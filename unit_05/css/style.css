@@ -12,3 +12,6 @@ html, body {
     text-align: center;
     padding: 10px;
 }
+div {
+    margin-bottom: 30px;
+}
