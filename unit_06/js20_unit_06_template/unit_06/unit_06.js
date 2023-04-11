@@ -31,12 +31,11 @@ document.querySelector('.b-1').onclick = t1;
 function t2() {
     let out = '';
     for (let i = 1; i < 4; i++){
-        out += `${i} <br>`;
+        out += `${i}<br>`;
         for (k = 0; k < 3; k++){
             out += '*_' ;
         }
         out += `<br>`;
-
     }
      document.querySelector('.out-2').innerHTML = out;
 }
@@ -103,8 +102,8 @@ function t5() {
             }
         }
         out += `<br>`;
-        document.querySelector('.out-5').innerHTML = out;
     }
+    document.querySelector('.out-5').innerHTML = out;
 }
 
 document.querySelector('.b-5').onclick = t5;
@@ -133,7 +132,6 @@ function t6() {
             }
         }
         out += `<br>`;
-    
     }
     document.querySelector('.out-6').innerHTML = out;
 }
