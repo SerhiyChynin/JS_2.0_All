@@ -184,9 +184,7 @@ function t10() {
     for (let i = 1950; i <= 1970; i = i + 2){
         out += i + '_';
     }
-
         document.querySelector('.out-10').innerHTML = out; 
-
 }
 
 document.querySelector('.b-10').onclick = t10;
@@ -249,12 +247,14 @@ document.querySelector('.b-13').onclick = t13;
 
 
 function t14() {
+    let out = '';
     let elem = document.querySelectorAll('.i-14');
     for (let i = 0; i < elem.length; i++){
         if (elem[i].checked) {
-            document.querySelector('.out-14').innerHTML = elem[i].value;
+            out = elem[i].value;
         }
     }
+    document.querySelector('.out-14').innerHTML = out;
 }
 
 document.querySelector('.b-14').onclick = t14;
@@ -265,9 +265,11 @@ document.querySelector('.b-14').onclick = t14;
 // Подсказка (10 - i) + '_' + i + '_'
 
 function t15() {
+    let out = '';
     for (let i = 10; i >= 0; i--){
-        document.querySelector('.out-15').innerHTML += i + '_' + (10  - i + '_');
+        out += i + '_' + (10  - i + '_');
     }
+    document.querySelector('.out-15').innerHTML = out;
 }
 
 document.querySelector('.b-15').onclick = t15;
