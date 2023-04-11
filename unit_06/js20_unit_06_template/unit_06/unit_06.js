@@ -95,8 +95,7 @@ function t5() {
     let out = ''; 
     for (let i = 1; i < 4; i++){
         for (k = 1; k < 7; k++){
-            if (k % 2 === 0) {
-                
+            if (k % 2 === 0) {  
                 out += 0;
             }
             else {
@@ -209,7 +208,7 @@ function t9() {
             else if (k === 2){
                 out += 3+'_'; 
             }
-           else if (k  === 3) {
+           else if (k === 3) {
              out += 4+'_';
             }
             else if (k === 4 ) {
