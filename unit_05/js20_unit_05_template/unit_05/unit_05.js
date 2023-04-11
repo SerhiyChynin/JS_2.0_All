@@ -98,8 +98,8 @@ function t6() {
     let out = '';
     for (let i = 0; i < i_6.value; i++) {
         out += '******' + '<br>';
-    };
-    document.querySelector('.out-6').innerHTML += out;
+    }
+    document.querySelector('.out-6').innerHTML = out;
 }
 
 
