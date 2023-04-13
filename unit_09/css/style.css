@@ -18,9 +18,23 @@ div {
 .two {
     background-color: greenyellow;
 }
+.twoo {
+    margin: 10px;
+    background-color: greenyellow;
+}
 .three {
     border: 2px solid red;
 }
 .four {
     max-width: 300px;
+}
+.base {
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    padding-bottom: 30px;
+}
+.middle {
+    background-color:brown;
+    margin: 10px;
 }

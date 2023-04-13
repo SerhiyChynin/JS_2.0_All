@@ -1,3 +1,4 @@
+// DOM - Document Object Model — «объектная модель документа»
 
 const one = document.querySelector('.one');
 one.style.width = '150px'; 
@@ -42,6 +43,45 @@ a.onclick = () => {
 }
 console.log(a);
 document.querySelector('.test').appendChild(a)
+
+
+
+const base = document.querySelector('.base');
+
+//Append
+let div = document.createElement('div');
+div.textContent = 'Append';
+div.classList.add('twoo');
+base.append(div); // появляется после елементов внутри родителя
+
+//prepend
+let div1 = document.createElement('div');
+div1.textContent = 'Prepend';
+div1.classList.add('twoo');
+base.prepend(div1); // появляеться перед елементами внутри родителя
+
+//before
+let div2 = document.createElement('div');
+div2.textContent = 'Before';
+div2.classList.add('twoo');
+base.before(div2); // появляется перед родителем
+
+//after
+let div3 = document.createElement('div');
+div3.textContent = 'After';
+div3.classList.add('twoo');
+base.after(div3); // появляется после родителя
+
+//replaceWith
+let div4 = document.createElement('div');
+div4.textContent = 'Replace';
+div4.classList.add('twoo');
+// base.replaceWith(div4); // заменяет див в котором находиться
+
+// div4.remove(); // убирает элемент из ДОМ
+// div3.remove();
+// div2.remove();
+
 
 
 
