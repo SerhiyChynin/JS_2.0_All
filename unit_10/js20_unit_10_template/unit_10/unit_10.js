@@ -312,6 +312,15 @@ document.querySelector('.b-16').onclick = f16;
 let ar17 = [3, 0, 2, 6, 0, 1, 3, 1, 9, 0, 2, 0];
 
 function f17() {
+    let out = '';
+    let sum = 0;
+    for (let i = 0; i < ar17.length; i++){
+        if (ar17[i] > 3) {
+            sum = sum + ar17[i];
+            out = sum;
+        }
+    }
+    document.querySelector('.out-17').innerHTML = out;
 
 }
 
@@ -327,7 +336,13 @@ document.querySelector('.b-17').onclick = f17;
 let ar18 = [15, 24, 13, 78, 21, 4, 45, 67];
 
 function f18() {
-
+    let max = ar19[0];
+    for (let i = 0; i < ar18.length; i++){
+        if (max < ar18[i]) {
+            max = ar18[i]
+        }
+    }
+    document.querySelector('.out-18').innerHTML = max;
 }
 
 document.querySelector('.b-18').onclick = f18;
@@ -342,6 +357,13 @@ document.querySelector('.b-18').onclick = f18;
 let ar19 = [15, 424, 313, 78, 241, 4, 45, 67];
 
 function f19() {
+    let min = ar19[0];
+    for (let i = 0; i < ar19.length; i++){
+        if (min > ar19[i]) {
+            min = i
+        }
+    }
+    document.querySelector('.out-19').innerHTML = min;
 
 }
 
@@ -356,6 +378,11 @@ document.querySelector('.b-19').onclick = f19;
 let ar20 = [4, 5, 6, 7, 8, 9, 10];
 
 function f20() {
+    let sum = 0;
+    for (let i = 0; i < ar20.length; i++){
+        sum = sum + ar20[i];
+    }
+    document.querySelector('.out-20').innerHTML = sum;
 
 }
 
