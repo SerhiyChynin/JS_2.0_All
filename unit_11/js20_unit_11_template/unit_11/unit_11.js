@@ -226,6 +226,11 @@ document.querySelector('.b-13').onclick = f13;
 let d14 = [];
 
 function f14() {
+    let i_14 = +document.querySelector('.i-14').value;
+    for (let i = 1; i <= i_14; i++){
+        d14.push(i_14 - i_14 + 1);
+    }
+    console.log(d14);
 
     showArr('.out-14', d14);
 }
@@ -241,8 +246,10 @@ document.querySelector('.b-14').onclick = f14;
 let d15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
 
 function f15() {
-
-
+    let i_15 = +document.querySelector('.i-15').value;
+    if (d15.indexOf(i_15)) {
+        d15.push(i_15);
+    }
     showArr('.out-15', d15);
 }
 
