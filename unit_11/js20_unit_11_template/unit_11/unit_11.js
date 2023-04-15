@@ -233,6 +233,7 @@ function f14() {
     console.log(d14);
 
     showArr('.out-14', d14);
+    d14 = [];
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -247,7 +248,7 @@ let d15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
 
 function f15() {
     let i_15 = +document.querySelector('.i-15').value;
-    if (d15.indexOf(i_15)) {
+    if (d15.indexOf(i_15) === -1) {
         d15.push(i_15);
     }
     showArr('.out-15', d15);
@@ -266,7 +267,7 @@ let d161 = [5, 6, 7, 8, 9];
 let d162 = [23, 24, 56, 87];
 
 function f16() {
-
+    d16 = d161.concat(d162)
     showArr('.out-16', d16);
 }
 
@@ -283,7 +284,10 @@ let d171 = ['a', 'b', 'c', 'd'];
 let d172 = [1, 2, 3, 4, 5];
 
 function f17() {
-
+    for (let i = 0; i < d171.length; i++){
+        d172.push(d171[i])
+    }
+    d17 = d172;
     showArr('.out-17', d17);
 }
 
@@ -299,7 +303,8 @@ document.querySelector('.b-17').onclick = f17;
 let d18 = ['b', 'c', '45', 'e', 'z', 'y'];
 
 function f18() {
-
+    let n = document.querySelector('.i-18').value;
+    document.querySelector('.out-18'). innerHTML =  d18.includes(n);
 }
 
 document.querySelector('.b-18').onclick = f18;
@@ -314,8 +319,16 @@ document.querySelector('.b-18').onclick = f18;
 let d19 = ['Your', 'payment', 'method', 'will', 'automatically', 'be', 'charged', 'in', 'advance', 'every'];
 let maxString = '';
 
-function f19() {
 
+function f19() {
+let s = d19[0];
+for (let i = 0; i < d19.length; i++){
+    if (s.length < d19[i].length) {
+        s = d19[i];
+    }
+    maxString = s;
+    document.querySelector('.out-19').innerHTML = maxString;
+}
 }
 
 document.querySelector('.b-19').onclick = f19;
@@ -329,7 +342,7 @@ document.querySelector('.b-19').onclick = f19;
 let d20 = [4, 5, 6, 7, 8, 9, 10];
 
 function f20() {
-
+    document.querySelector('.out-20').innerHTML = d20.join('');
 }
 
 document.querySelector('.b-20').onclick = f20;
