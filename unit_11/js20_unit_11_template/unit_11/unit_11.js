@@ -76,7 +76,7 @@ let d6 = ['test', 5, 12];
 
 function f6() {
     let i_6 = document.querySelector('.i-6');
-    d6[d6.length - 1] += i_6.value+' ';
+    d6[d6.length - 1] += i_6.value + ' ';
     showArr('.out-6', d6);
 }
 
@@ -91,8 +91,11 @@ document.querySelector('.b-6').onclick = f6;
 let d7 = ['china', 'india', 'brazil', 'japan', 'egypt'];
 
 function f7() {
-    console.log((d7.length-1));
-
+    let t = [];
+    for (let i = 0; i < d7.length - 1; i++){
+        t.push(d7[i]);
+    }
+    d7 = t;
     showArr('.out-7', d7);
 }
 
@@ -107,7 +110,13 @@ document.querySelector('.b-7').onclick = f7;
 let d8 = [2, '4', 12, 67, 'hello'];
 
 function f8() {
-
+    let i_8 = document.querySelector('.i-8');
+    let t = [];
+    for (let i = 0; i < d8.length; i++){
+        t[0] = i_8.value;
+        t.push(d8[i]);
+    }
+    d8 = t;
     showArr('.out-8', d8);
 }
 
@@ -122,7 +131,11 @@ document.querySelector('.b-8').onclick = f8;
 let d9 = [100, 200, 300, 400, 700, 121];
 
 function f9() {
-
+    let t = [];
+    for (let i = 1; i < d9.length; i++){
+        t.push(d9[i])
+    }
+    d9 = t;
     showArr('.out-9', d9);
 }
 
@@ -137,6 +150,7 @@ document.querySelector('.b-9').onclick = f9;
 let d10 = [3, 14, 15, 92, 6];
 
 function f10() {
+    d10.reverse();
 
     showArr('.out-10', d10);
 }
@@ -153,7 +167,8 @@ document.querySelector('.b-10').onclick = f10;
 let d11 = [2, 3, 4, 5, 6, 7];
 
 function f11() {
-
+    let i_11 = +document.querySelector('.i-11').value;
+    document.querySelector('.out-11').innerHTML = d11.indexOf(i_11);
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -168,6 +183,14 @@ document.querySelector('.b-11').onclick = f11;
 let d12 = [6, 62, 60, 70, 1, 5];
 
 function f12() {
+    let i_12 = +document.querySelector('.i-12').value;
+    let res = -1;
+    for (let i = 0; i < d12.length; i++){
+        if (i_12 === d12[i]) {
+            res = i;
+        }
+    }
+    document.querySelector('.out-12').innerHTML = res;
 
 }
 
@@ -183,8 +206,12 @@ document.querySelector('.b-12').onclick = f12;
 let d13 = [6, 0, 22, 1, 4, 76];
 
 function f13() {
-
-    showArr('.out-13', d13);
+    let t = [];
+    for (let i = d13.length - 1; i >= 0; i--){
+        t.push(d13[i]);
+    }
+    d13 = t;
+    showArr('.out-13', t);
 }
 
 document.querySelector('.b-13').onclick = f13;
