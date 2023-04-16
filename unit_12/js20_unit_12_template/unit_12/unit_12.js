@@ -33,7 +33,7 @@ function f3() {
     let a3 = [[1, 2, 3], [3, 4, 5], [6, [7, 'my']]];
     document.querySelector('.out-3').innerHTML = a3[2][1][1];
 
-    return a3[3][1][1];
+    return a3[2][1][1];
 }
 
 document.querySelector('.b-3').onclick = f3;
@@ -188,7 +188,7 @@ function f11() {
     let out = '';
     for (let i = 0; i < a11.length; i++){
         for (let k = a11[i].length - 1; k >= 0; k--){
-            out += a11[i][k]+' ';
+            out += a11[i][k] + ' ';
         }
     }
     document.querySelector('.out-11').innerHTML = out;
