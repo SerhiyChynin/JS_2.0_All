@@ -190,10 +190,17 @@ let a9 = {
 function f9() {
     let i_9 = document.querySelector('.i-9').value;
     let out = '';
-    if (i_9 in a9) {
-        out = a9;
+    for (let key in a9) {
+        console.log((a9[key]));
+        if (a9[key] == i_9) {
+            out += key + ' ';
+        }
+        else if (a9[key] != i_9) {
+            out += ' ';
+        }
     }
-    document.querySelector('.out-9').innerHTML = out;
+
+    document.querySelector('.out-9').innerHTML += out;
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -202,9 +209,12 @@ document.querySelector('.b-9').onclick = f9;
 // Давайте напишем полезную функцию f10, которая проверяет есть ли значение в ассоциативном массиве. Фукнция должна возвращать true если есть, и false если нет. Массив и значение передавать функции в качестве параметров.
 
 function f10(arr, val) {
-
-    //return true;
-    //return false;
+    for (let key in arr) {
+        if (arr[key] == val) {
+            return true;
+        }
+        return false;
+    }
 }
 
 document.querySelector('.b-10').onclick = () => {
@@ -229,6 +239,13 @@ let a11 = {
 };
 
 function f11() {
+    let i_11 = document.querySelector('.i-11').value;
+    for (let key in a11) {
+        if (i_11 == key) {
+            delete a11[key];
+        }
+    }
+    f5(a11, '.out-11');
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -245,7 +262,13 @@ let a12 = {
 };
 
 function f12() {
-
+    let i_12 = document.querySelector('.i-12').value;
+    for (let key in a12) {
+        if (i_12 == a12[key]) {
+            delete a12[key];
+        }
+    }
+    f5(a12, '.out-12');
 }
 
 document.querySelector('.b-12').onclick = f12;
@@ -261,7 +284,14 @@ let a13 = {
 };
 
 function f13() {
+    let r = 0;
+    for (let key in a13) {
+            if (r < a13[key]) {
+                r = r + a13[key];
+            }
+    }
 
+    document.querySelector('.out-13').innerHTML = r;
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -278,7 +308,11 @@ let a14 = {
 };
 
 function f14() {
-
+    let out = '';
+    for (let key in a14) {
+        out += a14[key][0] + ' ';
+    }
+    document.querySelector('.out-14').innerHTML = out;
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -296,7 +330,11 @@ let a15 = {
 };
 
 function f15() {
-
+    let out = '';
+    for (let key in a15) {
+        out += a15[key].join(' ') + ' ';
+    }
+    document.querySelector('.out-15').innerHTML = out;
 }
 
 document.querySelector('.b-15').onclick = f15;
@@ -320,7 +358,11 @@ let a16 = {
 }
 
 function f16() {
-
+    let out = '';
+    for (let key in a16) {
+        out +=  a16[key].name + ' ';        
+    }
+    document.querySelector('.out-16').innerHTML = out;
 }
 
 document.querySelector('.b-16').onclick = f16;
@@ -345,7 +387,13 @@ let a17 = {
 }
 
 function f17() {
-
+    let out = '';
+    for (let key in a17) {
+        if(a17[key].age > 30){
+        out +=  a17[key].name + ' ';        
+        }
+    }
+    document.querySelector('.out-17').innerHTML = out;
 }
 
 document.querySelector('.b-17').onclick = f17;
@@ -360,8 +408,20 @@ let a18 = {
 }
 
 function f18() {
-
+    let out = '';
+    let i_18 = document.querySelector('.i-18').value;
+    for (let key in a18) {
+        if (key == i_18) {
+            out += a18[key].join(' ');
+        }
+        else {
+            // out = '';
+        }
+    }
+    document.querySelector('.out-18').innerHTML = out;
 }
+document.querySelector('.b-18').onclick = f18;
+
 
 // Task 19
 // При нажатии b-19 выполняете функцию f19. Функция должна в out-19 вывести цвет ветки станции которую пользователь ввел в i-19. Пользователь может вводить текст как с большой, так и с маленькой буквы. Если ветка не найдена - выводите пустую строку.
@@ -374,7 +434,19 @@ let a19 = {
 }
 
 function f19() {
-
+    let out = '';
+    let i_19 = document.querySelector('.i-19').value;
+    for (let key in a19) {
+        // console.log(key);
+        console.log(a19[key]);
+        if (a19[key].includes(i_19[0].toUpperCase()+ i_19.substring(1))) {
+            out += key;
+        }
+        else {
+            // out = '';
+        }
+    }
+    document.querySelector('.out-19').innerHTML = out;
 }
 
 document.querySelector('.b-19').onclick = f19;
