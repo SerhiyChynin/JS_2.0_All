@@ -461,7 +461,22 @@ let a20 = {
 }
 
 function f20() {
-
+    let b = [];
+    let out = '';
+    for (let key in a20) {
+        for (let k in a20[key]) {
+            if (a20[key][k].includes(2)) {
+                b.push(a20[key][k][0]);
+            }
+        }
+    }
+    for (let i = 0; i < b.length; i++){
+        out += b[i] + ' ';
+    }
+    console.log(out);
+    
+    
+    document.querySelector('.out-20').innerHTML = out;
 }
 
-document.querySelector('.b-20').onclick = f20
+    document.querySelector('.b-20').onclick = f20;
