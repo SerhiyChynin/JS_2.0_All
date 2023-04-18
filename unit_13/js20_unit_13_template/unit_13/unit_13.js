@@ -48,7 +48,7 @@ function f3() {
         "odd": "hi",
         "mix": "mix"
     };
-    return a3.odd ;
+    return a3.odd + ' ' + a3.five;
 }
 
 document.querySelector('.b-3').onclick = () => {
@@ -139,15 +139,7 @@ function f7() {
         else {
             out = 0;
         }
-    // for(let key in a7){
-    //     console.log(key);            // !!!!!!  Why?
-    //     if (i_7 === key) {
-    //         out = 1;
-    //     }
-    //     else {
-    //         out = 0;
-    //     }
-    //     }
+    
     
     document.querySelector('.out-7').innerHTML = out;
 }
@@ -191,12 +183,8 @@ function f9() {
     let i_9 = document.querySelector('.i-9').value;
     let out = '';
     for (let key in a9) {
-        console.log((a9[key]));
         if (a9[key] == i_9) {
             out += key + ' ';
-        }
-        else if (a9[key] != i_9) {
-            out += ' ';
         }
     }
 
@@ -414,9 +402,6 @@ function f18() {
         if (key == i_18) {
             out += a18[key].join(' ');
         }
-        else {
-            // out = '';
-        }
     }
     document.querySelector('.out-18').innerHTML = out;
 }
@@ -439,9 +424,6 @@ function f19() {
     for (let key in a19) {
         if (a19[key].includes(i_19[0].toUpperCase()+ i_19.substring(1))) {
             out += key;
-        }
-        else {
-            // out = '';
         }
     }
     document.querySelector('.out-19').innerHTML = out;
