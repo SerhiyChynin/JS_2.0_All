@@ -437,8 +437,6 @@ function f19() {
     let out = '';
     let i_19 = document.querySelector('.i-19').value;
     for (let key in a19) {
-        // console.log(key);
-        console.log(a19[key]);
         if (a19[key].includes(i_19[0].toUpperCase()+ i_19.substring(1))) {
             out += key;
         }
@@ -473,7 +471,6 @@ function f20() {
     for (let i = 0; i < b.length; i++){
         out += b[i] + ' ';
     }
-    console.log(out);
     
     
     document.querySelector('.out-20').innerHTML = out;
