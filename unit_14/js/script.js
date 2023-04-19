@@ -5,7 +5,7 @@ let clouds = document.querySelector('.disclaimer');
 
 
 
-fetch('https:api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=33c21b2a24e3bccf78b34b4681a5c1c7')
+fetch('https:api.openweathermap.org/data/2.5/weather?q=Paris&appid=33c21b2a24e3bccf78b34b4681a5c1c7')
     .then(function (resp) { return resp.json() })
     .then(function (data) {
         console.log(data.weather);
