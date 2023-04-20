@@ -7,13 +7,14 @@ h1 {
 }
 ul, li {
     list-style-type: none;
-    margin-left: -18px
+    margin-left: -39px
 }
 
 .container {
     margin: 0 auto;
     max-width: 1200px;
-    background-color: #f1f1f1;
+    height: 100vh;
+    background-color: #f1f1f159;
     text-align: center;
 }
 
@@ -25,16 +26,15 @@ ul, li {
     border: 1px solid yellowgreen;
     border-radius: 2%;
     margin: 10px;
-    width: 200px;
+    width: 400px;
+    background-color: rgba(36, 197, 255, 0.029);
 }
 .city-name{
     width: 100%;
     border-radius: 2%;
     border: 1px solid greenyellow;
-    background-color: #fbf8f8;
-    background-color: rgba(0, 128, 0, 0.082);
+    background-color: rgba(0, 128, 0, 0.109);
     text-align: center;
-    padding-left: 15px;
 }
 .city-name:focus-visible {
     border: 1px solid greenyellow;
@@ -46,18 +46,26 @@ ul, li {
     color: rgba(0, 0, 0, 0.701);
 }
 .temp {
-    margin: auto;
-    font-size: 22px;
+    margin: 0;
+    font-size: 32px;
     font-weight: 600;
-    margin-left: 7%;
 }
 .clouds {
     text-align: center;
+    color: rgba(0, 0, 0, 0.746);
+}
+.wind {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.746);
+}
+.pressure {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.746);
 }
 .icon {
-    font-size: 28px;
-    margin-left: -8%;
+    margin: 20px 0;
 }
+
 hr {
     border-radius: 50%;
 }
