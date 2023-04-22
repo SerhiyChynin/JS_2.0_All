@@ -186,7 +186,9 @@ let str13 = 'abbat pro';
 
 
 const f13 = () => {
-
+    let res = {};
+    let s13 = new Set(str13)
+    console.log(s13);
     // return
 }
 
