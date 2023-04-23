@@ -114,6 +114,7 @@ const f8 = () => {
         }
     }
     console.log(ar8);
+    ar8 = [];
 }
 
 document.querySelector('.b-8').onclick = f8;
@@ -188,8 +189,15 @@ let str13 = 'abbat pro';
 const f13 = () => {
     let res = {};
     let s13 = new Set(str13)
-    console.log(s13);
-    // return
+    for (let s of s13) {
+        let count = 0;
+        for (let i = 0; i < str13.length; i++){
+            if (str13[i] === s) count++;
+
+        }
+        res[s] = count;
+    }
+    return res
 }
 
 document.querySelector('.b-13').onclick = () => {
