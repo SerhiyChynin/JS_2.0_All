@@ -45,3 +45,89 @@ document.querySelector('button').onclick = function (event) {
     p++
 }
 
+
+
+function f1() {
+    console.log(1);
+}
+function f2() {
+    console.log(2);
+}
+function f3() {
+    console.log(3);
+}
+function f4() {
+    console.log(4);
+}
+
+const b1 = document.querySelector('button.one');
+const b2 = document.querySelector('button.two');
+
+// добавление события================
+
+// b1.onclick = f1;
+// b2.addEventListener('click', f2);
+
+//добавление двух событий на одну кнопку============
+
+// b1.onclick = function () {
+//     f1();
+//     f3();
+// }
+// b2.addEventListener('click', f2);
+// b2.addEventListener('click', f4);
+
+// b1.onclick = f1;
+// b1.addEventListener('click', f2);
+// b1.addEventListener('click', f3);
+
+//удаление событие ===================
+
+// b1.onclick = function () {
+//     f1();
+//     f3();
+// };
+// b1.onclick = null;
+
+// b2.addEventListener('click', f2);
+// b2.addEventListener('click', f4);
+// b2.removeEventListener('click', f2);
+// b2.addEventListener('click', f2);
+
+//запуск события один раз
+
+// b1.onclick = () => {
+//     f1()
+//     b1.onclick = null;
+// };
+
+// b2.addEventListener('click', f2, {
+//     once: true
+// });
+
+// удаление всех событий
+
+// b1.onclick = () => {
+//     f1();
+//     f3();
+// }
+// b1.onclick = null;
+
+// b2.addEventListener('click', f2);
+// b2.addEventListener('click', f4);
+// // b2.removeEventListener('click');
+
+//анонимные функции
+
+b1.onclick = () => {
+    f1();
+}
+b1.onclick = null;
+
+b2.addEventListener('click', () => {
+    f2();
+})
+
+b2.removeEventListener('click', () => {
+    f2();
+})
