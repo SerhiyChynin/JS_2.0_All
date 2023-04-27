@@ -163,16 +163,13 @@ function t11(event) {
     if (key == 'Control') {
         key = 'ctrl';
     }
-    console.log(event);
     if (key == 'Alt') {
         key = 'alt';
     }
     if (key == 'Enter') {
         key = 'enter';
     }
-    if (key == 'Shift') {
-        key = 'shift';
-    }
+
     let button = document.querySelector(`.keyboard[data="${key}"]`);
     button.classList.add('active');
 }
