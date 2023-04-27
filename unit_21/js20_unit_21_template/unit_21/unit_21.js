@@ -195,6 +195,7 @@ function resetFunction() {
     }
     images[0].classList.add('active-img');
     document.querySelector('.img-12-max').src = images[count].src;
+    count = 0;
 }
 
 const reset = document.querySelector('.reset');
