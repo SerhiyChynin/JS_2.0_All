@@ -3,8 +3,8 @@
 /* Дан input .i-1. Напишите функцию t1, которая по событию keydown считывает содержимое event.key и добавляет в .out-1. Во всех последующих задачах - работаем с латиницей и цифрами. */
 
 function t1(event) {
-    console.log(event);
-    document.querySelector('.out-1').innerHTML = event.key;
+    document.querySelector('.out-1').innerHTML += event.key;
+    return event.key;
 }
 
 document.querySelector('.i-1').onkeydown = t1;
@@ -13,7 +13,6 @@ document.querySelector('.i-1').onkeydown = t1;
 /*  Дан input .i-2. Напишите функцию t2, которая по событию onkeypress выводит в out-2 числовой код символа (event.keyCode). */
 
 function t2(event) {
-    console.log(event);
     document.querySelector('.out-2').innerHTML = event.keyCode;
 
 }
@@ -25,7 +24,6 @@ document.querySelector('.i-2').onkeypress = t2;
 
 
 function t3(event) {
-    console.log(event.keyCode);
     if(event.keyCode >= 48 & event.keyCode <= 57) {
     document.querySelector('.out-3').innerHTML = false;
     }
@@ -43,7 +41,7 @@ document.querySelector('.i-3').onkeypress = t3;
 /*  Дан input .i-4. Напишите функцию t4, которая выводит в .out-4 только символы в нижнем регистре. Т.е. ввели ab4Bci в out-4 получаем ab4ci. */
 
 function t4(event) {
-    if (event.shiftKey !== true) {
+    if (event.key == event.key.toLowerCase()) {
         document.querySelector('.out-4').innerHTML += event.key;
     }
 }
@@ -66,10 +64,10 @@ document.querySelector('.i-5').onkeydown = t5;
 
 let str = '';
 function t6(event) {
-    if (event.shiftKey !== true) {
+    if (event.key == event.key.toLowerCase()) {
         str += event.key;
+        document.querySelector('.i-6').value = str;
     }
-    document.querySelector('.i-6').value = str;
     return false;
 }
 
@@ -81,14 +79,11 @@ document.querySelector('.i-6').onkeypress= t6;
 
 const a7 = ['a', 'z', 'x', 'w', 'y', 't'];
 
-function t7(e) {
-
+function t7() {
+    let rand = a7[Math.floor(Math.random() * a7.length)]
+    document.querySelector('.out-7').innerHTML = rand;
     }
     
-            
-    
-
-
 document.querySelector('.i-7').onkeydown= t7;
 
 // Task 8 ============================================
@@ -101,19 +96,27 @@ const a8 = {
 }
 
 function t8(event) {
-    // 1. Получаем из event введенный символ
-    // 2. Проверяем наличие такого ключа в a8 - уже делали это раньше!!!!
-    // 3. Если есть дописываем в out-8 символ из массива a8. Если нет - введенный символ.
+    let e = event.key;
+    if (a8[e] != undefined) {
+        document.querySelector('.out-8').innerHTML += a8[e];
+    }
+    else {
+        document.querySelector('.out-8').innerHTML += e;
+    }
 }
 
-document.querySelector('.i-8').onkeydown= t8;
+document.querySelector('.i-8').onkeydown = t8;
 
 
 // Task 9 ============================================
 /* Дан input .i-9. Напишите функцию t9, выводит в .out-9 количество (число) нажатых клавиш стрелка вниз. */
 
+let kD = 0;
 function t9(event) {
-    console.log(event);
+    if (event.code == 'ArrowDown') {
+        kD++;
+    }
+    document.querySelector('.out-9').innerHTML = kD;
 }
 
 document.querySelector('.i-9').onkeydown = t9;
@@ -126,7 +129,14 @@ let h = 75;
 let w = 75;
 
 function t10(event) {
-    // увеличиваем  h, w, потом присваиваем как свойства...
+    if (event.code == 'ArrowLeft' || event.code == 'ArrowRight') {
+        w++;
+        document.querySelector('.block-10').style.width = w + 'px';
+    }
+    else if(event.code == 'ArrowUp' || event.code == 'ArrowDown'){
+        document.querySelector('.block-10').style.height = h + 'px';
+        h++
+        }
 
 }
 
@@ -141,9 +151,20 @@ document.querySelector('.i-10').onkeydown = t10;
 5. Самостоятельно добавьте клавишу alt, enter.
 */
 
+const k = document.getElementsByClassName('keyboard');
 function t11(event) {
-    console.log(event.key);
-
+    for (let el of k) {
+        el.classList.remove('active');
+    }
+    let key = event.key;
+    if (key == ' ') {
+        key = 'space';
+    }
+    if (key == 'Control') {
+        key = 'ctrl';
+    }
+    let button = document.querySelector(`.keyboard[data="${key}"]`);
+    button.classList.add('active');
 }
 
 document.querySelector('.i-11').onkeydown = t11;
