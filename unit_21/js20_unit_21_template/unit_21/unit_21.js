@@ -79,8 +79,7 @@ document.querySelector('.div-4').ontouchend = t6;
 // Task 7 ============================================
 /*  Дан блок div-7. Добавьте событие touch, при срабатывании которого окрашивайте блок в красный цвет. */
 
-function t7(e) {
-    console.log(e);
+function t7() {
     document.querySelector('.div-7').style.background = 'red';
 }
 document.querySelector('.div-7').addEventListener('touchstart', t7); 
@@ -95,7 +94,7 @@ a8 = ['red', 'green', 'blue', 'orange', 'pink', 'yellow'];
 function t8() {
     let rand = Math.floor([Math.random() * a8.length])
     document.querySelector('.div-8').style.background = a8[rand];
-        ;
+        
 }
 document.querySelector('.div-8').addEventListener('touchstart', t8); 
 
