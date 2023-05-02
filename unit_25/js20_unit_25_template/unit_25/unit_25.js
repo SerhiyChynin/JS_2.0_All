@@ -113,7 +113,7 @@ document.querySelector('.b-4').onclick = f4;
 function f5() {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', URL + `/api/25/random/random-number?min=${min}&max=${max}`);
-    xhr.setRequestHeader('apikey', APIKEY, 'body', 'form-data');
+    xhr.setRequestHeader('apikey', APIKEY);
     xhr.onload = () => {
         const data = JSON.parse(xhr.response);
         document.querySelector('.out-5').innerHTML = data['random-number'];
@@ -338,7 +338,6 @@ function f13(){
     xhr.setRequestHeader('apikey', APIKEY);
     xhr.onload = () => {
         const data = JSON.parse(xhr.response);
-        console.log(data);
         document.querySelector('.out-13').innerHTML = data.password;
     }
     xhr.send();
@@ -355,8 +354,16 @@ document.querySelector('.b-13').onclick = f13;
 // если все сделано верно, то получите массив с описанием расы из игры КР.
 // выведите в .out-14 описание description расы (вывод через innerHTML)
 
-function f14(){
-    
+function f14() {
+    const xhr = new XMLHttpRequest();
+    let s_14 = document.querySelector('.s-14').value;
+    xhr.open('GET', URL + `/api/25/sr/read/${s_14}`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        document.querySelector('.out-14').innerHTML = data.result.description;
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -379,7 +386,6 @@ function f15() {
     xhr.setRequestHeader('apikey', APIKEY);
     xhr.onload = () => {
         const data = JSON.parse(xhr.response);
-        console.log(data);
         for (let key in data.result) {
             out += `<img src="${URL}${data.result[key].image}">`
         }
@@ -400,7 +406,18 @@ document.querySelector('.b-15').onclick = f15;
 // выведите в .out-16 названия (title) миров через пробел. 
 
 function f16(){
-
+    const xhr = new XMLHttpRequest();
+    let out = '';
+    xhr.open('GET', URL + `/api/25/gow/world`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        for (let key in data.worlds) {
+            out += data.worlds[key].title + ' ';
+        }
+        document.querySelector('.out-16').innerHTML = out;
+    }
+    xhr.send();
 }
 
 
@@ -416,7 +433,15 @@ document.querySelector('.b-16').onclick = f16;
 // выведите в .out-17 описание мира. 
 
 function f17(){
-
+    const xhr = new XMLHttpRequest();
+    let s_17 = document.querySelector('.s-17').value;
+    xhr.open('GET', URL + `/api/25/gow/world/${s_17}`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        document.querySelector('.out-17').innerHTML = data.world.description;
+    }
+    xhr.send();
 }
 
 
@@ -432,7 +457,18 @@ document.querySelector('.b-17').onclick = f17;
 // выполните очистку .out-18 в начале функции
 
 function f18(){
-
+    let out = '';
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + `/api/25/gow/rune`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        for (let key in data.rune) {
+            out += `<img src="${URL}${data.rune[key]}" alt="${key}">`
+        }
+        document.querySelector('.out-18').innerHTML = out;
+    }
+    xhr.send();
 }
 
 
