@@ -185,7 +185,15 @@ document.querySelector('.b-7').onclick = f7;
 // если запрос отправлен верно, то будет получен массив сотрудников компании. 
 // выведите в .out-8 число сотрудников компании itemCount.
 
-function f8(){
+function f8() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + `/api/25/employee/read`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response)
+        document.querySelector('.out-8').innerHTML = data.itemCount
+    }
+    xhr.send();
 
 }
 
@@ -200,7 +208,15 @@ document.querySelector('.b-8').onclick = f8;
 // выведите обозначение (designation) сотрудника в .out-9
 
 function f9(){
-    
+    const xhr = new XMLHttpRequest();
+    let i_9 = +document.querySelector('.i-9').value;
+    xhr.open('POST', URL + `/api/25/employee/read/${i_9}`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        document.querySelector('.out-9').innerHTML = data.result.designation;
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -216,7 +232,15 @@ document.querySelector('.b-9').onclick = f9;
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
 function f10(){
-   
+    const xhr = new XMLHttpRequest();
+    let i_10 = +document.querySelector('.i-10').value;
+    xhr.open('GET', URL + `/api/25/employee/read/${i_10}`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        document.querySelector('.out-10').innerHTML = data.result.age;
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-10').onclick = f10;
@@ -233,7 +257,15 @@ document.querySelector('.b-10').onclick = f10;
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
 function f11(){
-   
+    const xhr = new XMLHttpRequest();
+    let i_11 = +document.querySelector('.i-11').value;
+    xhr.open('POST', URL + `/api/25/random/generate-password?length=${i_11}`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        document.querySelector('.out-11').innerHTML = data.password;
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -252,7 +284,22 @@ document.querySelector('.b-11').onclick = f11;
 
 
 function f12(){
-    
+    const xhr = new XMLHttpRequest();
+    let i_12 = +document.querySelector('.i-12').value;
+    let ch_12 = document.querySelector('.ch-12');
+         if (ch_12.checked) {
+            ch_12 = 1;
+        }
+        else {
+            ch_12 = 0;            
+        }
+    xhr.open('POST', URL + `/api/25/random/generate-password?length=${i_12}&symbols=${ch_12}`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);   
+        document.querySelector('.out-12').innerHTML = data.password;
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-12').onclick = f12;
@@ -271,7 +318,30 @@ document.querySelector('.b-12').onclick = f12;
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
 function f13(){
-    
+    const xhr = new XMLHttpRequest();
+    let i_13 = +document.querySelector('.i-13').value;
+    let ch_131 = document.querySelector('.ch-131');
+    let ch_132 = document.querySelector('.ch-132');
+    if (ch_131.checked) {
+        ch_131 = 1;
+    }
+    else {
+        ch_131 = 0;
+    }
+    if (ch_132.checked) {
+        ch_132 = 1;
+    }
+    else {
+        ch_132 = 0;
+    }
+    xhr.open('POST', URL + `/api/25/random/generate-password?length=${i_13}&symbols=${ch_131}&uppercase=${ch_132}`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        console.log(data);
+        document.querySelector('.out-13').innerHTML = data.password;
+    }
+    xhr.send();
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -302,8 +372,20 @@ document.querySelector('.b-14').onclick = f14;
 // в начале функции очистите .out-15
 // выведите изображения рас в .out-15
 
-function f15(){
-
+function f15() {
+    let out = '';
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', URL + `/api/25/sr/read`);
+    xhr.setRequestHeader('apikey', APIKEY);
+    xhr.onload = () => {
+        const data = JSON.parse(xhr.response);
+        console.log(data);
+        for (let key in data.result) {
+            out += `<img src="${URL}${data.result[key].image}">`
+        }
+        document.querySelector('.out-15').innerHTML = out;
+    }
+    xhr.send();
 }
 
 
