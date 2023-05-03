@@ -1,6 +1,6 @@
 const params = {
     "url" : "https://api.openweathermap.org/data/2.5/",
-    "appid" : "33c21b2a24e3bccf78b34b4681a5c1c7"
+    "appid": "33c21b2a24e3bccf78b34b4681a5c1c7",
 }
 const cities = {
     703448 : "Kyiv",
