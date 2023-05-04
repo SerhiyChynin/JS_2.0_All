@@ -37,7 +37,6 @@ function rejectError(err) {
 }
 
 function resolveF1(data) {
-    console.log(data);
     if (data['random-number'] > 50) {
         document.querySelector('.out-1').innerHTML = true;
     }
@@ -75,7 +74,6 @@ function f2() {
 }
 
 function resolveF2(data) {
-    console.log(data);
     document.querySelector('.out-2').innerHTML = data['random-string'];
 }
 
@@ -102,7 +100,6 @@ function f3(){
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             emloyeerId = data['random-number'];
             return  fetch(URL + '/api/27/employee/read/' + emloyeerId, {
                 headers: requestHeaders
@@ -110,7 +107,6 @@ function f3(){
          })
         .then(response => response.json())
         .then(data => {
-             console.log(data);
              document.querySelector('.out-3').innerHTML = data.result.email;
             // допишите вывод
          });
@@ -135,7 +131,6 @@ function f4() {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data.email);
             employeeEmail = data.email;
             return fetch(`${URL}/api/27/employee/email?email=${employeeEmail}`, {
                 headers: requestHeaders
@@ -143,7 +138,6 @@ function f4() {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             document.querySelector('.out-4').innerHTML = data.result.name
     })
 
@@ -231,7 +225,6 @@ function f6(){
     });
 
     Promise.all([promise_1, promise_2]).then(data => {
-        console.log(data);
         document.querySelector('.out-6').innerHTML = data[0]['random-number'] + data[1]['random-number'];
        // выведите в консоль и посмотрите что лежит в data
        // выведите сумму полученных случайных чисел
@@ -267,7 +260,6 @@ function f7() {
     });
 
     Promise.all([p10, p20]).then(data => {
-        console.log(data);
         document.querySelector('.out-71').innerHTML = data[0][`random-number`];
         document.querySelector('.out-72').innerHTML = data[1][`random-string`];
     })
@@ -290,7 +282,29 @@ const out8 = document.querySelector('.out-8');
 
 
 function f8(){
-
+    out8.innerHTML = '';
+    let s_81 = document.querySelector('.s-81').value;
+    let s_82 = document.querySelector('.s-82').value;
+    let img = document.createElement('img');
+    let img2 = document.createElement('img');
+    const p1 = new Promise((resolve) => {
+        fetch(`${URL}/api/27/sr/read/${s_81}`, {
+            headers: requestHeaders
+        })
+            .then(data => resolve(data.json()))
+    });
+    const p2 = new Promise((resolve) => {
+        fetch(`${URL}/api/27/sr/read?race=${s_82}`, {
+            headers: requestHeaders
+        })
+            .then(data => resolve(data.json()))
+    });
+    Promise.all([p1, p2]).then(data => {
+        img.src = `${URL}${data[0].result.image}`;
+        img2.src = `${URL}${data[1].result.image}`;
+        out8.append(img);
+        out8.append(img2);
+    })
 }
 
 document.querySelector('.b-8').onclick = f8;
