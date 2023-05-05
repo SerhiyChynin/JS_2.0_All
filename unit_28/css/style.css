@@ -1,0 +1,83 @@
+html, body {
+    width: auto;
+    margin: 0 auto;
+}
+
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: #f1f1f1;
+}
+.text-center {
+    text-align: center;
+    padding: 10px;
+}
+div {
+    margin-bottom: 30px;
+}
+.two {
+    background-color: greenyellow;
+}
+.twoo {
+    margin: 10px;
+    background-color: greenyellow;
+}
+.three {
+    border: 2px solid red;
+}
+.four {
+    max-width: 300px;
+}
+.base {
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    padding-bottom: 30px;
+}
+.middle {
+    background-color:brown;
+    margin: 10px;
+}
+.weather {
+    max-width: 100px;
+    border: 1px solid green;
+    text-align: center;
+    text-decoration: none;
+}
+ul,
+li {
+    list-style-type: none;
+    margin-left: -17px 
+}.block-row {
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.block {
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+.bg-orange {
+    text-align: center;
+    padding: 20px;
+    background-color: orange;
+    margin: 20px;
+    border: 1px solid black;
+    color: white;
+}
+.material-symbols-outlined {
+    margin-top: -5px;
+    vertical-align: middle;
+}
+.yg {
+    text-align: center;
+    padding: 20px;
+    background-color: yellowgreen;
+    margin: 20px;
+    border: 1px solid black;
+    color: white;
+}
