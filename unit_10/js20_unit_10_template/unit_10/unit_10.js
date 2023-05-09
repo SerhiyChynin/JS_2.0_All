@@ -316,7 +316,7 @@ function f17() {
     let sum = 0;
     for (let i = 0; i < ar17.length; i++){
         if (ar17[i] > 3) {
-            sum = sum + ar17[i];
+            sum = sum + 1;
             out = sum;
         }
     }
@@ -336,7 +336,7 @@ document.querySelector('.b-17').onclick = f17;
 let ar18 = [15, 24, 13, 78, 21, 4, 45, 67];
 
 function f18() {
-    let max = ar19[0];
+    let max = ar18[0];
     for (let i = 0; i < ar18.length; i++){
         if (max < ar18[i]) {
             max = ar18[i]
